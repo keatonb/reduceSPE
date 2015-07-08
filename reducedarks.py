@@ -52,8 +52,8 @@ def main(fpath_spe):
         dt_begin = dateutil.parser.parse(ts_begin)
         prihdr['TICKRATE'] = int(footer_metadata.find(name='TimeStamp', event='ExposureStarted').attrs['resolution'])
         prihdr['DATE-OBS'] = str(dt_begin.isoformat())
-        prihdr['XBIN'] = footer_metadata.find(name="SensorMapping").attrs['xBinning']
-        prihdr['YBIN'] = footer_metadata.find(name="SensorMapping").attrs['yBinning']
+        prihdr['XBINNING'] = footer_metadata.find(name="SensorMapping").attrs['xBinning']
+        prihdr['YBINNING'] = footer_metadata.find(name="SensorMapping").attrs['yBinning']
         prihdr['INSTRUME'] = footer_metadata.find(name="Camera").attrs['model']
         prihdr['TRIGGER'] = footer_metadata.find(name='TriggerResponse').text
         prihdr['COMMENT'] = "SPE file has footer metadata"
